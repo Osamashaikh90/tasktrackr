@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const cors = require("cors");
-const port = 4000;
 const pool = require("./db");
 app.use(cors());
 app.use(express.json());
@@ -79,6 +79,6 @@ app.get("/", (req, res) => {
   res.send("Hello from server");
 });
 
-app.listen(port, () => {
-  console.log(`${port} I am connected .`);
+app.listen(process.env.PORT, () => {
+  console.log(`${process.env.PORT} I am connected .`);
 });
