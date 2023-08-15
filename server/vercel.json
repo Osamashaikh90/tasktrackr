@@ -1,14 +1,41 @@
-
 {
-    "version":2,
-    "builds":[
-        {
-            "src":"server/server.js",
-            "use":"@vercel/node"
-        }
-    ],
-    "routes":[
-        { "src": "/todo/(.*)", "dest": "server/server.js" },
-        { "src": "/(.*)", "dest": "server/server.js" } 
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/todo/create",
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/api/todo/get",
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/api/todo/:id",
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/api/update/:id",
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/api/delete/:id",
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server/server.js"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "server/server.js"
+    }
+  ]
 }
