@@ -4,7 +4,7 @@ const Create = async (req, res) => {
   try {
     const { description } = req.body;
     const work = await pool.query(
-      "INSERT INTO pgserver (description) VALUES($1) returning *",
+      "INSERT INTO server (description) VALUES($1) returning *",
       [description]
     );
     res.json(work.rows[0]);
@@ -16,7 +16,7 @@ const Create = async (req, res) => {
 
 const Get = async (req, res) => {
   try {
-    const allTodo = await pool.query("Select * from pgserver");
+    const allTodo = await pool.query("Select * from server");
     res.json(allTodo.rows);
   } catch (error) {
     console.log(error);
@@ -27,7 +27,7 @@ const GetById = async (req, res) => {
   try {
     const { id } = req.params;
     const singleTodo = await pool.query(
-      "Select * from pgserver where server_id = $1",
+      "Select * from server where server_id = $1",
       [id]
     );
     res.json(singleTodo.rows[0]);
@@ -41,7 +41,7 @@ const Update = async (req, res) => {
     const { id } = req.params;
     const { description } = req.body;
     const updateTodo = await pool.query(
-      "update pgserver set description = $1 where server_id = $2",
+      "update server set description = $1 where server_id = $2",
       [description, id]
     );
     res.json("updated Successfully!! ");
@@ -54,7 +54,7 @@ const Delete = async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query(
-      "delete from pgserver where server_id = $1 ",
+      "delete from server where server_id = $1 ",
       [id]
     );
     res.json("Deleted Succesfully!!");
