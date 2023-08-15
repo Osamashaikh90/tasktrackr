@@ -8,7 +8,7 @@ app.use(express.json());
 
 //routes
 //create a todo
-app.post("/todo/create", async (req, res) => {
+app.post("/api/todo/create", async (req, res) => {
   try {
     const { description } = req.body;
     const work = await pool.query(
@@ -23,7 +23,7 @@ app.post("/todo/create", async (req, res) => {
 });
 
 //get all todo
-app.get("/todo/get", async (req, res) => {
+app.get("/api/todo/get", async (req, res) => {
   try {
     const allTodo = await pool.query("Select * from pgserver");
     res.json(allTodo.rows);
@@ -33,7 +33,7 @@ app.get("/todo/get", async (req, res) => {
 });
 
 //get a single todo
-app.get("/todo/:id", async (req, res) => {
+app.get("/api/todo/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const singleTodo = await pool.query(
@@ -47,7 +47,7 @@ app.get("/todo/:id", async (req, res) => {
 });
 
 // update a single id
-app.put("/update/:id", async (req, res) => {
+app.put("/api/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { description } = req.body;
@@ -62,7 +62,7 @@ app.put("/update/:id", async (req, res) => {
 });
 
 //delete
-app.delete("/delete/:id", async (req, res) => {
+app.delete("/api/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query(
