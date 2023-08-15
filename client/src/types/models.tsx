@@ -1,5 +1,5 @@
 export interface TodoObject {
-    id: string,
-    value: string,
+    server_id: number,
+     description: string,
     done: boolean
 }
