@@ -6,11 +6,9 @@
       "use": "@vercel/node"
     }
   ],
-   "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
+   "routes":[
+        { "src": "/todo/(.*)", "dest": "server/server.js" },
+        { "src": "/(.*)", "dest": "server/server.js" } 
     ]
   
 }
