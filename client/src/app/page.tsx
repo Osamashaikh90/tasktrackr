@@ -93,8 +93,8 @@ const Home:React.FC = () => {
         >TaskTrackr</h1></div>
     </header>
     <main className='min-h-screen min-w-full bg-center bg-no-repeat pb-20 bg-cover flex justify-center'>
-        <div  className='w-[440px] h-[600px] p-7 rounded-xl shadow-xl mt-4 overflow-y-auto '>
-          <h1 className={`text-purple-700 text-center my-5 text-3xl ${pr.className}`}>Keep Track Of Your Daily Task!</h1>
+        <div  className='w-[440px] h-[600px] p-7 rounded-xl shadow-xl mt-4 overflow-y-auto style={{"backgroundColor":"#0d0c22"}} '>
+          <h1 className={` text-slate-200 text-center my-5 text-3xl ${pr.className}`}>Keep Track <span className='text-purple-700'>Of Your Daily Task!</span></h1>
           <form onSubmit={onSubmitForm}>
             <input className='w-[320px] p-3 text-base font-normal mt-2 mr-[10px] text-gray-800 bg-white rounded' type="text" placeholder='Enter Your Task' value={description}
               onChange={(e) => setDescription(e.target.value)} />
