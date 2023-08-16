@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {AiOutlineEdit } from "react-icons/ai";
-import Modal from './modal';
+import Modal from './Modal';
 import { TodoObject } from '@/types/models';
 interface TaskProps {
     todo: TodoObject;
