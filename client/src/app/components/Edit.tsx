@@ -15,7 +15,7 @@ const Edit: React.FC<TaskProps> = ({todo , onDescriptionUpdated}) => {
     try {
       const body = {description: taskToEdit };
       const response = await fetch(
-        `http://localhost:4000/update/${todo.server_id}`,
+        `https://tasktrackr-goy7-qa5okt2ih-osamashaikh90.vercel.app/update/${todo.server_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

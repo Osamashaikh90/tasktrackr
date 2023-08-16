@@ -21,7 +21,7 @@ const Home:React.FC = () => {
   
   const addTodo = async () => {
     try {
-      const response = await fetch("http://localhost:4000/todo/get");
+      const response = await fetch("https://tasktrackr-goy7-qa5okt2ih-osamashaikh90.vercel.app/todo/get");
       const jsonData = await response.json();
       console.log(jsonData);
       setTodos(jsonData);
@@ -54,7 +54,7 @@ const Home:React.FC = () => {
   const deleteTodo = async (id: any) => {
     console.log(id)
     try {
-      const deleteTodo = await fetch(`http://localhost:4000/delete/${id}`, {
+      const deleteTodo = await fetch(`https://tasktrackr-goy7-qa5okt2ih-osamashaikh90.vercel.app/delete/${id}`, {
       method:"DELETE"
       })
        setTodos(todos.filter(todo => todo.server_id !== id));
@@ -70,7 +70,7 @@ const Home:React.FC = () => {
     try {
       const body =  {description} ;
       console.log(body)
-      const response = await fetch("http://localhost:4000/todo/create", {
+      const response = await fetch("https://tasktrackr-goy7-qa5okt2ih-osamashaikh90.vercel.app/todo/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
